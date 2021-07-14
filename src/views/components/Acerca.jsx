@@ -1,7 +1,7 @@
-//componente para login de usuario registrado
+//Componente información del equipo
 import React from 'react'
 
-function Login() {
+function Acerca() {
     return (
         <div>
             
@@ -9,4 +9,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Acerca
