@@ -1,0 +1,103 @@
+<Column
+                  title="Acciones"
+                  key="action"
+                  render={(item) => (
+                    <Space size="middle">
+                      <button
+                        className="btn btn-info float-end"
+                        onClick={() => {
+                          editar(item);
+                        }}
+                      >
+                        Editar
+                      </button>
+                     <button
+                      className="btn btn-danger float-end"
+                      onClick={() => {
+                        deleteCategoria(item.id);
+                      }}
+                    >
+                      Borrar
+                    </button>
+                    </Space>
+                  )}
+                />
+
+
+                 // <Space align="center">
+    //   <div className="container">
+    //     <h1>GESTIÓN DE CATEGORÍAS</h1>
+    //     <div class="col">
+    //       <div className="row">
+    //         <div className="col">
+    //           <h2>Mis Categorías</h2>
+              
+    //         </div>
+    //         <div className="col">
+    //           <h2>Crear nueva categoría</h2>
+    //           {/* <form onSubmit={(e) => addCategoria(e)} className="form-group"> */}
+             
+    //           {/* 
+    //           <form
+    //             onSubmit={modoEdicion ? editarCategoria : addCategoria}
+    //             className="form-group"
+    //           > */}
+    //           {/* <Radio.Group onChange={onChange} value={tipoRegistro}>
+    //               <Radio value={"Gasto"}> Gasto </Radio>
+    //               <Radio value={"Ingreso"}> Ingreso </Radio>
+    //             </Radio.Group> */}
+    //           {/* <input
+    //               onChange={(e) => {
+    //                 setCategoria(e.target.value);
+    //               }}
+    //               className="form-control mb-3"
+    //               type="text"
+    //               placeholder="Ingrese la categoría."
+    //               value={categoria}
+    //             /> */}
+
+    //           {/* <input
+    //               className="btn btn-info btn-block mb-3"
+    //               type="submit"
+    //               value={
+    //                 modoEdicion ? "Editar categoría" : "Registrar categoría"
+    //               }
+    //             />
+    //           </form> */}
+    //           {error != null ? (
+    //             <div className="alert alert-danger">{error}</div>
+    //           ) : (
+    //             <div></div>
+    //           )}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </Space>
+
+
+    <ul className="list-group">
+              {/* <li className="list-group-item"> Item 1</li> */}
+              {listaRegistros.map((item) => (
+                <li key="item.id" className="list-group-item">
+                  {item.tipoRegistro},{item.categoria},{item.monto},{" "}
+                  {item.fecha.formatoFechaRegistro}
+                  <button
+                    className="btn btn-danger float-end"
+                    onClick={() => {
+                      deleteRegistro(item.id);
+                    }}
+                  >
+                    Borrar
+                  </button>
+                  <button
+                    className="btn btn-info float-end"
+                    onClick={() => {
+                      editar(item);
+                    }}
+                  >
+                    Editar
+                  </button>
+                </li>
+              ))}
+            </ul>
