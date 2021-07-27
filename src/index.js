@@ -2,21 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
-import { Auth0Provider } from "@auth0/auth0-react";
 
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/scss/light-bootstrap-dashboard-react.scss?v=2.0.0";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 ReactDOM.render(
   <BrowserRouter>
-  <Auth0Provider
-      domain="finanzapp.us.auth0.com"
-      clientId="dJ2yZ1hYNer1sJiYBwSo3Z7EbYYfzLsT"
-      redirectUri={window.location.origin}
-    >
+  
       <App />
-    </Auth0Provider>
   </BrowserRouter>,
   document.getElementById("root")
  );

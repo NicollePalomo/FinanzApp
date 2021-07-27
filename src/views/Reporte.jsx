@@ -1,51 +1,167 @@
-import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import React from "react";
+import ChartistGraph from "react-chartist";
+// react-bootstrap components
+import {
+  Card,
+  Container,
+  Row,
+  Col,
+  
+} from "react-bootstrap";
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+function Reporte() {
+  return (
+    <>
+      <Container>
+        {/* tarjetas ingreso, egreso, caja */}
+        <Row>
+          {/* ingresos */}
+          <Col lg="4" sm="6">
+            <Card className="card-stats">
+              <Card.Body>
+                <Row>
+                  <Col xs="5">
+                    <div className="icon-big text-center icon-warning">
+                      <i className="nc-icon nc-chart text-warning"></i>
+                    </div>
+                  </Col>
 
-export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/pie-chart-with-padding-angle-7ux0o';
+                  <Col xs="7">
+                    <div className="numbers">
+                      <p className="card-category">Ingresos</p>
+                      <Card.Title as="h4">$ 1,345</Card.Title>
+                    </div>
+                  </Col>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Col>
 
-  render() {
-    return (
-      <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
-        <Pie
-          data={data}
-          cx={120}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-        <Pie
-          data={data}
-          cx={420}
-          cy={200}
-          startAngle={180}
-          endAngle={0}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
-    );
-  }
+          {/* egresos */}
+          <Col lg="4" sm="6">
+            <Card className="card-stats">
+              <Card.Body>
+                <Row>
+                  <Col xs="5">
+                    <div className="icon-big text-center icon-warning">
+                      <i className="nc-icon nc-light-3 text-success"></i>
+                    </div>
+                  </Col>
+                  <Col xs="7">
+                    <div className="numbers">
+                      <p className="card-category">Egresos</p>
+                      <Card.Title as="h4">$ 1,345</Card.Title>
+                    </div>
+                  </Col>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          {/* caja */}
+          <Col lg="4" sm="12">
+            <Card className="card-stats">
+              <Card.Body>
+                <Row>
+                  <Col xs="5">
+                    <div className="icon-big text-center icon-warning">
+                      <i className="nc-icon nc-vector text-danger"></i>
+                    </div>
+                  </Col>
+                  <Col xs="7">
+                    <div className="numbers">
+                      <p className="card-category">Caja</p>
+                      <Card.Title as="h4">$ 1,345</Card.Title>
+                    </div>
+                  </Col>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+
+        <Row>
+          {/* Ingresos */}
+          <Col md="6">
+            <Card>
+              <Card.Header>
+                <Card.Title as="h3">Ingresos</Card.Title>
+                <p className="card-category">
+                  Representacion grafica de los ingresos a la fecha.
+                </p>
+              </Card.Header>
+
+              <Card.Body>
+                <div className="ct-chart" id="chartPreferences">
+                  <ChartistGraph
+                    data={{
+                      labels: ["50%", "10%", "40%"],
+                      series: [50, 10, 40],
+                    }}
+                    type="Pie"
+                  />
+                </div>
+                {/* leyenda */}
+                <div className="legend text-center">
+                  <i className="fas fa-circle text-info"></i>
+                  <spam className="mr-2">Company</spam>
+                  <i className="fas fa-circle text-danger"></i>
+                  <spam className="mr-2">Charlez</spam>
+                  <i className="fas fa-circle text-warning"></i>
+                  <spam className="mr-2">TToTo</spam>
+                </div>
+                {/* <hr></hr>
+                <div className="stats text-center">
+                  <i className="far fa-clock"></i>
+                  Actualizado hasta la fecha
+                </div> */}
+              </Card.Body>
+            </Card>
+          </Col>
+
+          {/* Egresos */}
+          <Col md="6">
+            <Card>
+              <Card.Header>
+                <Card.Title as="h3">Egresos</Card.Title>
+                <p className="card-category">
+                  Representacion grafica de los egresos a la fecha
+                </p>
+              </Card.Header>
+
+              <Card.Body>
+                <div className="ct-chart" id="chartPreferences">
+                  <ChartistGraph
+                    data={{
+                      labels: ["40%", "20%", "40%"],
+                      series: [40, 20, 40],
+                    }}
+                    type="Pie"
+                  />
+                </div>
+
+                {/* leyenda */}
+                <div className="legend text-center">
+                  <i className="fas fa-circle text-info"></i>
+                  <spam className="mr-2">Servicios</spam>
+                  <i className="fas fa-circle text-danger"></i>
+                  <spam className="mr-2">Pelis</spam>
+                  <i className="fas fa-circle text-warning"></i>
+                  <spam className="mr-2">Comida</spam>
+                </div>
+
+                {/* <hr></hr>
+                <div className="stats text-center">
+                  <i className="far fa-clock"></i>
+                  Actualizado hasta la fecha
+                </div> */}
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
 }
+
+export default Reporte;
