@@ -21,7 +21,7 @@ const Routes = [
   {
     path: "/registros/",
     name: "Ver Registros",
-    icon: "nc-icon nc-bank",
+    icon: "nc-icon nc-bullet-list-67",
     component: RegistroList,
     layout: "",
     // exact: true,
@@ -29,7 +29,7 @@ const Routes = [
   {
     path: "/categorias/add",
     name: "Agregar Categoría",
-    icon: "nc-icon nc-bank",
+    icon: "nc-icon nc-notes",
     component: CreateCategoria,
     layout: "",
     // exact: true,
@@ -37,7 +37,7 @@ const Routes = [
   {
     path: "/categorias/",
     name: "Ver Categorías",
-    icon: "nc-icon nc-bank",
+    icon: "nc-icon nc-bullet-list-67",
     component: CategoriaList,
     layout: "",
     // exact: true,
@@ -45,7 +45,7 @@ const Routes = [
   {
     path: "/reporte/",
     name: "Ver Reporte",
-    icon: "nc-icon nc-bank",
+    icon: "nc-icon nc-chart-pie-35",
     component: Reporte,
     layout: "",
     // exact: true,
