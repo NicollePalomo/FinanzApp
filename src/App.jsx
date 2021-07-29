@@ -11,6 +11,7 @@ import Sidebar from "./views/components/Sidebar.jsx";
 
 import AdminNavbar from "./views/components/AdminNavbar.jsx";
 import routes from "./routes";
+import EditRoutes from "./editroutes";
 
 function App() {
   // const location = useLocation();
@@ -36,7 +37,8 @@ function App() {
         <div className="main-panel" ref={mainPanel}>
           <AdminNavbar />
           <div className="content">
-            <Switch>{getRoutes(routes)}</Switch>
+            <Switch>{getRoutes(routes)}
+            {getRoutes(EditRoutes)}</Switch>
           </div>
         </div>
       </div>

@@ -25,6 +25,7 @@ export default class CreateCategoria extends Component {
       fecha: null,
       notas: "",
     };
+    
   }
 
   componentDidMount() {
@@ -78,8 +79,10 @@ export default class CreateCategoria extends Component {
         <option key={i} value={categ.categoria}>
           {categ.categoria}
         </option>
+
       );
     });
+
   }
 
   onSubmit(e) {
@@ -103,7 +106,7 @@ export default class CreateCategoria extends Component {
     };
 
     axios
-      .post("http://localhost:4000/registros/add-registro", newRegistro)
+      .post("http://localhost:4000/registros/", newRegistro)
       .then((res) => console.log(res.data));
 
     this.setState({
@@ -127,7 +130,7 @@ export default class CreateCategoria extends Component {
                 className="card-plain table-plain-bg"
               >
                 <Card.Header>
-                  <Card.Title as="h4">Crear nuevo movimiento</Card.Title>
+                  <Card.Title as="h4">Crear nuevo registro</Card.Title>
                 </Card.Header>
 
                 <Card.Body className="table-full-width table-responsive px-0">
@@ -207,7 +210,7 @@ export default class CreateCategoria extends Component {
                           as="select"
                           name="categorias"
                           onChange={this.onChangeCategoria.bind(this)}
-                          defaultValue=""
+                          defaultValue={this.state.listaCategoria[0]}
                         >
                           {this.categoriaList()}
                         </Form.Control>

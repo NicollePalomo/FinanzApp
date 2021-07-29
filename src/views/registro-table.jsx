@@ -15,7 +15,7 @@ export default class RegistroTable extends Component {
   deleteRegistro() {
     axios
       .delete(
-        "http://localhost:4000/registros/delete-registro/" + this.props.reg._id
+        "http://localhost:4000/registros/" + this.props.reg._id
       )
       .then((res) => {
         console.log("Registro successfully deleted!");

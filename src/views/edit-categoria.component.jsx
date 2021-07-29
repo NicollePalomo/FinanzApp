@@ -47,14 +47,14 @@ export default class EditCategoria extends Component {
     };
     console.log(obj);
     axios
-      .post(
-        "http://localhost:4000/categorias/update-categoria/" +
+      .put(
+        "http://localhost:4000/categorias/" +
           this.props.match.params.id,
         obj
       )
       .then((res) => console.log(res.data));
 
-    this.props.history.push("/");
+    this.props.history.push("/categorias");
   }
   render() {
     return (
@@ -67,7 +67,7 @@ export default class EditCategoria extends Component {
                 className="card-plain table-plain-bg"
               >
                 <Card.Header>
-                  <Card.Title as="h4">Nueva Categoría</Card.Title>
+                  <Card.Title as="h4">Editar Categoría</Card.Title>
                 </Card.Header>
 
                 <Card.Body className="table-full-width table-responsive px-0">

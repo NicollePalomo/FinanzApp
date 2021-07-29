@@ -16,12 +16,22 @@ export default class EditCategoria extends Component {
       tipoRegistro: "Ingreso",
       categoria: "",
       listaCategoria: [],
-      monto: 0,
-      fecha: null,
+     
+      
       notas: "",
     };
   }
   componentDidMount() {
+    axios
+      .get("http://localhost:4000/categorias/")
+      .then((response) => {
+        console.log("peticion enviada");
+        this.setState({ listaCategoria: response.data });
+        console.log(this.state.listaCategoria);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     axios
       .get("http://localhost:4000/registros/" + this.props.match.params.id)
       .then((response) => {
@@ -36,16 +46,7 @@ export default class EditCategoria extends Component {
       .catch(function (error) {
         console.log(error);
       });
-    axios
-      .get("http://localhost:4000/categorias/")
-      .then((response) => {
-        console.log("peticion enviada");
-        this.setState({ listaCategoria: response.data });
-        console.log(this.state.listaCategoria);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    
   }
   onChangeTipoRegistro(e) {
     console.log(e.target.value);
@@ -100,14 +101,14 @@ export default class EditCategoria extends Component {
     };
     console.log(obj);
     axios
-      .post(
-        "http://localhost:4000/registros/update-registro/" +
+      .put(
+        "http://localhost:4000/registros/" +
           this.props.match.params.id,
         obj
       )
       .then((res) => console.log(res.data));
 
-    this.props.history.push("/");
+    this.props.history.push("/registros");
   }
 
   render() {
@@ -122,7 +123,7 @@ export default class EditCategoria extends Component {
                 className="card-plain table-plain-bg"
               >
                 <Card.Header>
-                  <Card.Title as="h4">Crear nuevo movimiento</Card.Title>
+                  <Card.Title as="h4">Editar Registro</Card.Title>
                 </Card.Header>
 
                 <Card.Body className="table-full-width table-responsive px-0">

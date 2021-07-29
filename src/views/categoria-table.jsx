@@ -9,10 +9,10 @@ export default class CategoriaTable extends Component {
     this.deleteCategoria = this.deleteCategoria.bind(this);
   }
 
-  deleteCategoria() {
+  deleteCategoria(e) {
     axios
       .delete(
-        "http://localhost:4000/categorias/delete-categoria/" +
+        "http://localhost:4000/categorias/" +
           this.props.categ._id
       )
       .then((res) => {
@@ -21,6 +21,9 @@ export default class CategoriaTable extends Component {
       .catch((error) => {
         console.log(error);
       });
+
+   
+      
   }
 
   render() {
@@ -30,7 +33,7 @@ export default class CategoriaTable extends Component {
         <td>{this.props.categ.categoria}</td>
         <td>
           <Button size="sm" variant="primary">
-            <Link to={"/categorias/edit/" + this.props.categ._id}>Edit</Link>
+            <Link to={"/categorias/edit-categoria/" + this.props.categ._id}>Edit</Link>
           </Button>
           <Button onClick={this.deleteCategoria} size="sm" variant="danger">
             Delete
