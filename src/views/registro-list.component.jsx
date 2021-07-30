@@ -15,7 +15,7 @@ export default class RegistroList extends Component {
       axios
         .get("http://localhost:4000/registros/")
         .then((response) => {
-          console.log("peticion enviada");
+          // console.log("peticion enviada");
           this.setState({ registros: response.data });
         })
         .catch(function (error) {
