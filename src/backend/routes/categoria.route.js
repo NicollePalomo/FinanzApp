@@ -1,20 +1,73 @@
 const { Router } = require("express");
 const router = Router();
+const categoriaSchema = require("../models/Categoria.model");
+const { check, validationResult } = require("express-validator");
 
 const {
   getCategorias,
-  createCategoria,
   getCategoria,
   deleteCategoria,
-  updateCategoria,
 } = require("../controllers/categoria.controller");
 
-router.route("/").get(getCategorias).post(createCategoria);
-router
-  .route("/:id")
-  .get(getCategoria)
-  .delete(deleteCategoria)
-  .put(updateCategoria);
+router.route("/").get(getCategorias);
+router.route("/:id").get(getCategoria);
+router.route("/:id").delete(deleteCategoria);
+//Agregar con validaciones
+router.post(
+  "/",
+  [
+    check("categoria")
+      .notEmpty()
+      .withMessage("La categoría no puede estar vacía")
+      .isLength({ min: 3 })
+      .withMessage("Categoria debe tener por lo menos 3 caracteres"),
+    check("tipoRegistro")
+      .notEmpty()
+      .withMessage("El tipo de registro no puede estar vacío"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { categoria, tipoRegistro } = req.body;
+    const newCategoria = new categoriaSchema({
+      categoria,
+      tipoRegistro,
+    });
+
+    await newCategoria.save();
+
+    res.json("New categoria added");
+  }
+);
+//Actualizar con validaciones
+router.put(
+  "/:id",
+  [
+    check("categoria")
+      .notEmpty()
+      .withMessage("La categoría no puede estar vacía")
+      .isLength({ min: 3 })
+      .withMessage("Categoria debe tener por lo menos 3 caracteres"),
+    check("tipoRegistro")
+      .notEmpty()
+      .withMessage("El tipo de registro no puede estar vacío"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { categoria, tipoRegistro } = req.body;
+    await categoriaSchema.findByIdAndUpdate(req.params.id, {
+      categoria,
+      tipoRegistro,
+    });
+    res.json("Categoria Updated");
+  }
+);
 
 module.exports = router;
 

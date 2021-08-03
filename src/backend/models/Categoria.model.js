@@ -3,8 +3,8 @@ const { Schema } = mongoose;
 
 let CategoriaSchema = new Schema(
   {
-    tipoRegistro: { type: String , enum:["Ingreso","Gasto"], required: true},
-    categoria: { type: String , required: true},
+    tipoRegistro: { type: String },
+    categoria: { type: String },
   },
   {
     collection: "categorias",

@@ -19,7 +19,6 @@ export default class EditCategoria extends Component {
     axios
       .get("http://localhost:4000/categorias/" + this.props.match.params.id)
       .then((response) => {
-
         this.setState({
           tipoRegistro: response.data.tipoRegistro,
           categoria: response.data.categoria,
@@ -48,13 +47,13 @@ export default class EditCategoria extends Component {
     console.log(obj);
     axios
       .put(
-        "http://localhost:4000/categorias/" +
-          this.props.match.params.id,
+        "http://localhost:4000/categorias/" + this.props.match.params.id,
         obj
       )
-      .then((res) => console.log(res.data));
-
-    this.props.history.push("/categorias");
+      .then(
+        (res) => console.log(res.data),
+        this.props.history.push("/categorias")
+      );
   }
   render() {
     return (

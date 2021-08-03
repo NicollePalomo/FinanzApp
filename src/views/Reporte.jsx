@@ -11,8 +11,8 @@ export default class Reporte extends Component {
       egresoTotal: [],
       ingresoTotal: [],
       listaRegistro: [],
-      ingresoState:"Ingreso",
-      gastoState:"Gasto",
+      ingresoState: "Ingreso",
+      gastoState: "Gasto",
     };
     // this.listaIngresos = this.listaIngresos.bind(this);
   }
@@ -30,17 +30,19 @@ export default class Reporte extends Component {
       });
   }
 
-  categoriaList() {
+  listarIngresos() {
     var filteredList = this.state.listaRegistro.filter((item) => {
       return item.tipoRegistro === this.state.ingresoState;
     });
-    return filteredList.map((categ, i) => {
-      return (
-        <option key={i} value={categ.categoria}>
-          {categ.monto}
-        </option>
-      );
-    });
+    // var suma = 0;
+    // var ingresos = [];
+    // var i = 1;
+    // return filteredList.map((categ, i) => {
+    //   suma+=categ.monto;
+    //   ingresos[i]=suma
+    //   i++;
+    //   return <p>{ingresos[ingresos.]}</p>;
+    // });
   }
 
   render() {
@@ -63,7 +65,8 @@ export default class Reporte extends Component {
                     <Col xs="7">
                       <div className="numbers">
                         <p className="card-category">Ingresos</p>
-                        <Button ></Button>
+                        {this.listarIngresos()}
+                        <Button></Button>
                         {/* {this.listaIngresos()} */}
                         <Card.Title as="h4">$ 1,345</Card.Title>
                       </div>

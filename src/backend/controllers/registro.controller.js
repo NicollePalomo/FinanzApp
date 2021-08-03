@@ -9,7 +9,6 @@ registroCtrl.getRegistros = async (req, res) => {
 };
 
 registroCtrl.createRegistro = async (req, res) => {
-//   const { errors, isValid } = validateCategoriaInput(req.body);
 
   const { tipoRegistro, fecha, monto, categoria, notas } = req.body;
   const newRegistro = new registroSchema({
@@ -35,16 +34,16 @@ registroCtrl.deleteRegistro = async (req, res) => {
   res.json("Registro Deleted");
 };
 
-registroCtrl.updateRegistro = async (req, res) => {
-  const { tipoRegistro, fecha, monto, categoria, notas } = req.body;
-  await registroSchema.findByIdAndUpdate(req.params.id, {
-    tipoRegistro,
-    fecha,
-    monto,
-    categoria,
-    notas,
-  });
-  res.json("Registro Updated");
-};
+// registroCtrl.updateRegistro = async (req, res) => {
+//   const { tipoRegistro, fecha, monto, categoria, notas } = req.body;
+//   await registroSchema.findByIdAndUpdate(req.params.id, {
+//     tipoRegistro,
+//     fecha,
+//     monto,
+//     categoria,
+//     notas,
+//   });
+//   res.json("Registro Updated");
+// };
 
 module.exports = registroCtrl;

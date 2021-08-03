@@ -16,6 +16,7 @@
     "concurrently": "^6.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-validator": "^6.12.1",
     "is-empty": "^1.2.0",
     "joi": "^17.4.1",
     "jsonwebtoken": "^8.5.1",
