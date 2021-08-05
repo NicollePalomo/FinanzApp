@@ -4,10 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "antd/dist/antd.css";
 import { Route, Switch } from "react-router-dom";
 
-
 import Sidebar from "./views/components/Sidebar.jsx";
-// import Registro from "./views/Registro.jsx";
-
 import AdminNavbar from "./views/components/AdminNavbar.jsx";
 import routes from "./routes";
 import EditRoutes from "./editroutes";
@@ -20,11 +17,10 @@ function App() {
     return routes.map((prop, key) => {
       return (
         <Route
-          
-        exact path={prop.layout + prop.path}
+          exact
+          path={prop.layout + prop.path}
           render={(props) => <prop.component {...props} />}
           key={key}
-          
         />
       );
     });
@@ -36,8 +32,10 @@ function App() {
         <div className="main-panel" ref={mainPanel}>
           <AdminNavbar />
           <div className="content">
-            <Switch>{getRoutes(routes)}
-            {getRoutes(EditRoutes)}</Switch>
+            <Switch>
+              {getRoutes(routes)}
+              {getRoutes(EditRoutes)}
+            </Switch>
           </div>
         </div>
       </div>

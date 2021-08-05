@@ -1,15 +1,18 @@
-// import Dashboard from "./views/Dashboard.jsx";
-// import Movement from "./views/Movement.jsx";
-// import Category from "./views/Category.jsx";
+import Reporte from "./views/Reporte.jsx";
 import CreateCategoria from "./views/create-categoria.component.jsx";
-// import EditCategoria from "./views/edit-categoria.component.jsx";
 import CategoriaList from "./views/categoria-list.component.jsx";
 import CreateRegistro from "./views/create-registro.component.jsx";
-// import EditRegistro from "./views/edit-registro.component.jsx";
 import RegistroList from "./views/registro-list.component.jsx";
-import Reporte from "./views/Reporte.jsx";
 
 const Routes = [
+  {
+    path: "/reporte/",
+    name: "Ver Reporte",
+    icon: "nc-icon nc-chart-pie-35",
+    component: Reporte,
+    layout: "",
+    // exact: true,
+  },
   {
     path: "/registros/add",
     name: "Agregar Registro",
@@ -44,14 +47,6 @@ const Routes = [
     layout: "",
     // exact: true,
   },
-  {
-    path: "/reporte/",
-    name: "Ver Reporte",
-    icon: "nc-icon nc-chart-pie-35",
-    component: Reporte,
-    layout: "",
-    // exact: true,
-  }
 ];
 
 export default Routes;
