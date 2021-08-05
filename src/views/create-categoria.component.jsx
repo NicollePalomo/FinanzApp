@@ -38,11 +38,11 @@ export default class CreateCategoria extends Component {
     };
 
     axios
-      .post("http://localhost:4000/categorias/add-categoria", newCategoria)
+      .post("http://localhost:4000/categorias/", newCategoria)
       .then((res) => console.log(res.data));
 
     this.setState({
-      tipoRegistro: "",
+      tipoRegistro: "Ingreso",
       categoria: "",
     });
     e.target.reset();

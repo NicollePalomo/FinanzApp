@@ -2,10 +2,10 @@
 // import Movement from "./views/Movement.jsx";
 // import Category from "./views/Category.jsx";
 import CreateCategoria from "./views/create-categoria.component.jsx";
-import EditCategoria from "./views/edit-categoria.component.jsx";
+// import EditCategoria from "./views/edit-categoria.component.jsx";
 import CategoriaList from "./views/categoria-list.component.jsx";
 import CreateRegistro from "./views/create-registro.component.jsx";
-import EditRegistro from "./views/edit-registro.component.jsx";
+// import EditRegistro from "./views/edit-registro.component.jsx";
 import RegistroList from "./views/registro-list.component.jsx";
 import Reporte from "./views/Reporte.jsx";
 
@@ -18,6 +18,7 @@ const Routes = [
     layout: "",
     // exact: true,
   },
+
   {
     path: "/registros/",
     name: "Ver Registros",
@@ -34,6 +35,7 @@ const Routes = [
     layout: "",
     // exact: true,
   },
+
   {
     path: "/categorias/",
     name: "Ver Categorías",

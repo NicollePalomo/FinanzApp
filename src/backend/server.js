@@ -8,7 +8,6 @@ let dbConfig = require("./database/db");
 const categoriaRoute = require("./routes/categoria.route");
 const registroRoute = require("./routes/registro.route");
 
-
 // Connecting mongoDB Database
 mongoose.Promise = global.Promise;
 mongoose
