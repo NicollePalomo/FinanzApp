@@ -8,10 +8,11 @@ export default class Reporte extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      egresoTotal: [],
-      ingresoTotal: [],
+      egresoTotal: 0,
+      ingresoTotal: 0,
       listaRegistro: [],
       ingresoFiltrado: [],
+      egresoFiltrado: [],
     };
   }
 
@@ -21,7 +22,6 @@ export default class Reporte extends Component {
       .then((response) => {
         // envia el valor de response al stado listaRegistro
         this.setState({ listaRegistro: response.data });
-        console.log(this.state.listaRegistro);
       })
       .catch(function (error) {
         console.log(error);
@@ -29,13 +29,41 @@ export default class Reporte extends Component {
   }
 
   listaIngresos() {
-    let ingresoFiltrado = this.state.listaResgistro.filter((item) => {
-      return item.tipoRegistro === "Ingreso";
-      
-    });
-    console.log(ingresoFiltrado); 
+    //  funcion  que obtiene los registros "ingresos" y se guarda en otra variable para tener el code mas claro
+    const resultFilter = (filtrado) => filtrado.tipoRegistro === "Ingreso";
+    // funcion  filtrar
+    const ingresoFiltrado = this.state.listaRegistro.filter(resultFilter);
+    /*retorno de la funcion filtrar, se le aplica map para obtener el valor del monto y se le palica reduce 
+    para sumar los valores del nuevo array*/
+    return ingresoFiltrado.map((elem) => elem.monto).reduce((sum, value) => sum + value, 0);
   }
- 
+
+  listaEgresos() {
+    //  funcion  que obtiene los registros "ingresos" y se guarda en otra variable para tener el code mas claro
+    const resultFilter = (filtrado) => filtrado.tipoRegistro === "Gasto";
+    // funcion  filtrar
+    const egresoFiltrado = this.state.listaRegistro.filter(resultFilter);
+    /*retorno de la funcion filtrar, se le aplica map para obtener el valor del monto y se le palica reduce 
+    para sumar los valores del nuevo array*/
+    return egresoFiltrado.map((elem) => elem.monto).reduce((sum, value) => sum + value, 0);
+  }
+
+  cajaRestante() {
+    return this.listaIngresos() - this.listaEgresos();
+  }
+
+  // listaIngresosCategoria() {
+  //   //  funcion  que obtiene los registros "ingresos" y se guarda en otra variable para tener el code mas claro
+  //   const resultFilter = (filtrado) =>
+  //     filtrado.tipoRegistro === "Ingreso" && filtrado.categoria === "Compañia SASS";
+  //   // funcion  filtrar
+  //   const ingresoFiltrado = this.state.listaRegistro.filter(resultFilter);
+
+  //   /*retorno de la funcion filtrar, se le aplica map para obtener el valor del monto y se le palica reduce
+  //   para sumar los valores del nuevo array*/
+  //   console.log(ingresoFiltrado);
+  //   return ingresoFiltrado.map((elem) => elem.monto).reduce((sum, value) => sum + value, 0);
+  // }
 
   render() {
     return (
@@ -57,7 +85,8 @@ export default class Reporte extends Component {
                     <Col xs="7">
                       <div className="numbers">
                         <p className="card-category">Ingresos</p>
-                        <Card.Title as="h4">$ 1,345</Card.Title>
+
+                        <Card.Title as="h4">$ {this.listaIngresos()}</Card.Title>
                       </div>
                     </Col>
                   </Row>
@@ -78,7 +107,7 @@ export default class Reporte extends Component {
                     <Col xs="7">
                       <div className="numbers">
                         <p className="card-category">Egresos</p>
-                        <Card.Title as="h4">$ 1,345</Card.Title>
+                        <Card.Title as="h4">$ {this.listaEgresos()}</Card.Title>
                       </div>
                     </Col>
                   </Row>
@@ -99,7 +128,7 @@ export default class Reporte extends Component {
                     <Col xs="7">
                       <div className="numbers">
                         <p className="card-category">Caja</p>
-                        <Card.Title as="h4">$ 1,345</Card.Title>
+                        <Card.Title as="h4">$ {this.cajaRestante()}</Card.Title>
                       </div>
                     </Col>
                   </Row>
@@ -124,7 +153,7 @@ export default class Reporte extends Component {
                     <ChartistGraph
                       data={{
                         labels: ["50%", "10%", "40%"],
-                        series: [50, 10, 40],
+                        series: [50, 30, 40, 12, 90],
                       }}
                       type="Pie"
                     />

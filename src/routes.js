@@ -8,7 +8,6 @@ import CreateRegistro from "./views/create-registro.component.jsx";
 import EditRegistro from "./views/edit-registro.component.jsx";
 import RegistroList from "./views/registro-list.component.jsx";
 import Reporte from "./views/Reporte.jsx";
-import Reporte1 from "./views/Reporte1.jsx";
 
 const Routes = [
   {
@@ -50,15 +49,7 @@ const Routes = [
     component: Reporte,
     layout: "",
     // exact: true,
-  },
-  {
-    path: "/reporte1/",
-    name: "Ver Reporte1",
-    icon: "nc-icon nc-chart-pie-35",
-    component: Reporte1,
-    layout: "",
-    // exact: true,
-  },
+  }
 ];
 
 export default Routes;
