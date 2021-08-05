@@ -34,7 +34,6 @@ app.use(cors());
 app.use("/categorias", categoriaRoute);
 app.use("/registros", registroRoute);
 
-
 // PORT
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {

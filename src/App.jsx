@@ -1,6 +1,5 @@
 // import logo from "./logo.svg";
 import React from "react";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "antd/dist/antd.css";
 import { Route, Switch } from "react-router-dom";
