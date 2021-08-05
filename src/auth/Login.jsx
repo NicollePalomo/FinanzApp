@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import { Button, Card, Container, Row, Col, Form } from "react-bootstrap";
 
 class Login extends Component {
   constructor() {
@@ -123,3 +124,41 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
 });
 export default connect(mapStateToProps, { loginUser })(Login);
+
+
+
+const { errors } = this.state;
+<Container>
+  <Row>
+    <Col md={6}>
+      <Col md={12}>
+        <h4>
+          <b>Login</b> below
+        </h4>
+        <p className="text-muted">
+          Don't have an account? <Link to="/register">Register</Link>
+        </p>
+      </Col>
+
+      <Form noValidate onSubmit={this.onSubmit}>
+        <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Label>Correo</Form.Label>
+          <Form.Control
+            onChange={this.onChange}
+            value={this.state.email}
+            error={errors.email}
+            type="email"
+            placeholder="Ingrese su correo"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formGroupPassword">
+          <Form.Label>Contraseña</Form.Label>
+          <Form.Control type="password" placeholder="Ingrese su contraseña" />
+        </Form.Group>
+      </Form>
+    </Col>
+
+    <Col md={6}></Col>
+  </Row>
+</Container>;
