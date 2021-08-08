@@ -1,5 +1,5 @@
 import React from "react";
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { Nav } from "react-bootstrap";
 
@@ -50,7 +50,7 @@ function Sidebar({ routes }) {
 
         <div className="cerrarSesion">
           <a href="/#">
-            <i className="nc-icon nc-app"></i> Cerar Sesión
+            <i className="nc-icon nc-app"></i> Cerrar Sesión
           </a>
         </div>
       </div>
