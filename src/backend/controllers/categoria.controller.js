@@ -30,13 +30,13 @@ categoriaCtrl.deleteCategoria = async (req, res) => {
   res.json("Categoria Deleted");
 };
 
-// categoriaCtrl.updateCategoria = async (req, res) => {
-//   const { categoria, tipoRegistro } = req.body;
-//   await categoriaSchema.findByIdAndUpdate(req.params.id, {
-//     categoria,
-//     tipoRegistro,
-//   });
-//   res.json("Categoria Updated");
-// };
+categoriaCtrl.updateCategoria = async (req, res) => {
+  const { categoria, tipoRegistro } = req.body;
+  await categoriaSchema.findByIdAndUpdate(req.params.id, {
+    categoria,
+    tipoRegistro,
+  });
+  res.json("Categoria Updated");
+};
 
 module.exports = categoriaCtrl;

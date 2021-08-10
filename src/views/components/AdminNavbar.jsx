@@ -56,7 +56,7 @@ function Header() {
           <Nav className="ml-auto" navbar>
             <Nav.Item>
               <Nav.Link className="m-0" href="#" onClick={(e) => e.preventDefault()}>
-                <span className="d-lg-block">Hola Nicolle</span>
+                <span className="d-lg-block">Hola Usuario     .</span>
                 <i className="nc-icon nc-circle-09 ml-3"></i>
               </Nav.Link>
             </Nav.Item>

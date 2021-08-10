@@ -3,7 +3,7 @@ import CreateCategoria from "./views/create-categoria.component.jsx";
 import CategoriaList from "./views/categoria-list.component.jsx";
 import CreateRegistro from "./views/create-registro.component.jsx";
 import RegistroList from "./views/registro-list.component.jsx";
-//import Login from "./views/Login.js";
+import Login from "./views/Login.jsx";
 const Routes = [
   {
     path: "/reporte/",
@@ -45,17 +45,25 @@ const Routes = [
     icon: "nc-icon nc-bullet-list-67",
     component: CategoriaList,
     layout: "",
-    // exact: true,
+    //exact: true,
   },
 
-  // {
-  //   path: "/login",
-  //   name: "loguearse",
-  //   icon: "nc-icon nc-bullet-list-67",
-  //   component: Login,
-  //   layout: "",
-  //   // exact: true,
-  // },
+  {
+    path: "/Login",
+    name: "loguearse",
+    icon: "nc-icon nc-bullet-list-67",
+    component: Login,
+    layout: "",
+    //exact: true,
+  },
+  {
+    path: "/register",
+    name: "registrarse",
+    icon: "nc-icon nc-bullet-list-67",
+    component: "Registrarse",
+    layout: "",
+    //exact: true,
+  }
 
 ];
 

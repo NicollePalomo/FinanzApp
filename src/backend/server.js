@@ -5,40 +5,43 @@ let bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
 const app = express();
-//let dbConfig = require("./database/db");
+let dbConfig = require("./database/db");
 
 // Express Route
 const categoriaRoute = require("./routes/categoria.route");
 const registroRoute = require("./routes/registro.route");
 
-// // Connecting mongoDB Database
-// mongoose.Promise = global.Promise;
-// mongoose
-//   .connect(dbConfig.db, {
-//     useNewUrlParser: true,
-//   })
-//   .then(
-//     () => {
-//       console.log("Database sucessfully connected!");
-//     },
-//     (error) => {
-//       console.log("Could not connect to database : " + error);
-//     }
-//   );
+// Connecting mongoDB Database
 
-// DB Config
-const db = require("./config/keys").mongoURI;
-// Connect to MongoDB
+
+
+mongoose.Promise = global.Promise;
 mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log("Conectado a MongoDB con éxito."))
-  .catch((err) => console.log(err));
+  .connect(dbConfig.db, {
+    useNewUrlParser: true,
+  })
+  .then(
+    () => {
+      console.log("Database sucessfully connected!");
+    },
+    (error) => {
+      console.log("Could not connect to database : " + error);
+    }
+  );
+
+// // DB Config
+// const db = require("./database").mongoURI;
+// // Connect to MongoDB
+// mongoose
+//   .connect(db, { useNewUrlParser: true })
+//   .then(() => console.log("Conectado a MongoDB con éxito."))
+//   .catch((err) => console.log(err));
 
 // Passport middleware
 app.use(passport.initialize());
 
 // Passport config
-require("./config/passport")(passport);
+//require("./config/passport")(passport);
 
 // Routes
 app.use(".routes/api/users", users);

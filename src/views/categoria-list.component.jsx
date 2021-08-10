@@ -1,9 +1,8 @@
 // Componente para gestión de categorías
 
 import React, { Component } from "react";
-
 import {  Card, Table, Col } from "react-bootstrap";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import CategoriaTable from "./categoria-table.jsx";
 

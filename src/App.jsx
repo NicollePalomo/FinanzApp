@@ -1,4 +1,4 @@
-// import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "antd/dist/antd.css";
@@ -14,7 +14,7 @@ import Register from "./auth/Register.jsx";
 import Login from "./auth/Login.jsx";
 
 function App() {
-  // const location = useLocation();
+//  const location = useLocation();
   const mainPanel = React.useRef(null);
 
   const getRoutes = (routes) => {
