@@ -6,12 +6,12 @@ import { Route, Switch } from "react-router-dom";
 
 import { Provider } from "react-redux";
 import store from "./store";
-import Sidebar from "./views/components/Sidebar.jsx";
-import AdminNavbar from "./views/components/AdminNavbar.jsx";
+import Sidebar from "./components/layouts/Sidebar.jsx";
+import AdminNavbar from "./components/layouts/AdminNavbar.jsx";
 import routes from "./routes";
 import EditRoutes from "./editroutes";
-import Register from "./auth/Register.jsx";
-import Login from "./auth/Login.jsx";
+// import Register from "./auth/Register.jsx";
+// import Login from "./auth/Login.jsx";
 
 function App() {
   // const location = useLocation();

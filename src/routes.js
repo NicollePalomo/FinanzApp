@@ -1,10 +1,19 @@
-import Reporte from "./views/Reporte.jsx";
-import CreateCategoria from "./views/create-categoria.component.jsx";
-import CategoriaList from "./views/categoria-list.component.jsx";
-import CreateRegistro from "./views/create-registro.component.jsx";
-import RegistroList from "./views/registro-list.component.jsx";
+import Reporte from "./components/views/Reporte.jsx";
+import CreateCategoria from "./components/views/create-categoria.component.jsx";
+import CategoriaList from "./components/views/categoria-list.component.jsx";
+import CreateRegistro from "./components/views/create-registro.component.jsx";
+import RegistroList from "./components/views/registro-list.component.jsx";
+import Login from "./components/auth/Login.jsx";
 
 const Routes = [
+  {
+    path: "/Login/",
+    name: "Login",
+    icon: "nc-icon nc-chart-pie-35",
+    component: Login,
+    layout: "",
+    // exact: true,
+  },
   {
     path: "/reporte/",
     name: "Ver Reporte",

@@ -1,5 +1,5 @@
-import EditCategoria from "./views/edit-categoria.component.jsx";
-import EditRegistro from "./views/edit-registro.component.jsx";
+import EditCategoria from "./components/views/edit-categoria.component.jsx";
+import EditRegistro from "./components/views/edit-registro.component.jsx";
 
 const EditRoutes = [
   {
