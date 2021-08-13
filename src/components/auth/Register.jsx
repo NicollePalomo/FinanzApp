@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "actions/authActions";
 import classnames from "classnames";
+import { Card, Button, Container, Row, Col, Form } from "react-bootstrap";
 class Register extends Component {
   constructor() {
     super();
@@ -45,92 +46,89 @@ class Register extends Component {
     const { errors } = this.state;
     return (
       <div className="container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
-              </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.name}
-                  error={errors.name}
-                  id="name"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.name,
-                  })}
-                />
-                <label htmlFor="name">Name</label>
-                <span className="red-text">{errors.name}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email,
-                  })}
-                />
-                <label htmlFor="email">Email</label>
-                <span className="red-text">{errors.email}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password,
-                  })}
-                />
-                <label htmlFor="password">Password</label>
-                <span className="red-text">{errors.password}</span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password2}
-                  error={errors.password2}
-                  id="password2"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password2,
-                  })}
-                />
-                <label htmlFor="password2">Confirm Password</label>
-                <span className="red-text">{errors.password2}</span>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem",
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3">
-                  Sign up
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+        <Container>
+          <Row>
+            <Col md={6}>
+              <Card as={Col} md={8} className="d-flex justify-content-center ">
+                <Card.Body>
+                  <Col md={12} className="text-center mb-4">
+                    <a href="/#" className="mx-1">
+                      <div className="logo">
+                        <img
+                          src={require("../../assets/img/finanzapp.png").default}
+                          alt="..."
+                          style={{ width: "80px", padding: "0" }}
+                        />
+                      </div>
+                    </a>
+                    <Card.Title as="h4" className="mb-4">
+                      <b>Bienvenido a FinanzApp</b>
+                    </Card.Title>
+                    <spam className="card-category">----------- Registrate -----------</spam>
+                  </Col>
+                  <Col md={12} className=" text-center mt-3">
+                    <Form noValidate onSubmit={this.onSubmit}>
+                      <Form.Group className="mb-3" controlId="formGroupEmail">
+                        <Form.Control
+                          onChange={this.onChange}
+                          //value={this.state.email}
+                          error={errors.email}
+                          type="text"
+                          placeholder="Usuario"
+                          className={classnames("", {
+                            invalid: errors.email || errors.emailnotfound,
+                          })}
+                          required
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.email}
+                          {errors.emailnotfound}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formGroupEmail">
+                        <Form.Control
+                          onChange={this.onChange}
+                          //value={this.state.email}
+                          error={errors.email}
+                          type="email"
+                          placeholder="Email"
+                          className={classnames("", {
+                            invalid: errors.email || errors.emailnotfound,
+                          })}
+                          required
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.email}
+                          {errors.emailnotfound}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="formGroupPassword">
+                        <Form.Control type="password" placeholder="Contraseña" />
+                        <Form.Control.Feedback type="invalid">
+                          Por favor, proporcione una contraseña
+                        </Form.Control.Feedback>
+                      </Form.Group>
+
+                      <Button
+                        type="submit"
+                        className="m-4 btn-fill text-center"
+                        variant="info"
+                        style={{ borderRadius: "20px" }}>
+                        Entrar
+                      </Button>
+                      <p className="text-muted card-category">
+                        ya estas registrado? <Link to="/register">Inicia sesión</Link>
+                      </p>
+                    </Form>
+                  </Col>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col md={6}></Col>
+          </Row>
+        </Container>
       </div>
     );
   }
