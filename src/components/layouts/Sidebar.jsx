@@ -25,7 +25,7 @@ function Sidebar({ routes }) {
         </div>
 
         <Nav>
-          <div className="nav-link2">Inicio</div>
+          <div className="nav-link2 ">Inicio</div>
           {routes.map((prop, key) => {
             if (!prop.redirect)
               return (
@@ -50,7 +50,7 @@ function Sidebar({ routes }) {
 
         <div className="cerrarSesion">
           <a href="/#">
-            <i className="nc-icon nc-app"></i> Cerar Sesión
+            <i className="nc-icon nc-app"></i> Cerrar sesión
           </a>
         </div>
       </div>

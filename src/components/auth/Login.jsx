@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "actions/authActions";
 import classnames from "classnames";
-import { Button, Container, Row, Col, Form } from "react-bootstrap";
+import { Card, Button, Container, Row, Col, Form } from "react-bootstrap";
 
 class Login extends Component {
   constructor() {
@@ -47,49 +47,68 @@ class Login extends Component {
     return (
       <div>
         <Container>
-          <Row className="d-flex justify-content-center align-items-center">
+          <Row>
             <Col md={6}>
-              <Col md={12}>
-                <h4>
-                  <b>Bienvenido a FinanzApp</b>
-                </h4>
-              </Col>
+              <Card as={Col} md={8} className="d-flex justify-content-center ">
+                <Card.Body>
+                  <Col md={12} className="text-center mb-4">
+                    <a href="/#" className="mx-1">
+                      <div className="logo">
+                        <img
+                          src={require("../../assets/img/finanzapp.png").default}
+                          alt="..."
+                          style={{ width: "80px", padding: "0" }}
+                        />
+                      </div>
+                    </a>
+                    <Card.Title as="h4" className="mb-4">
+                      <b>Bienvenido a FinanzApp</b>
+                    </Card.Title>
+                    <spam className="card-category">
+                      ----------- Inicio de sesion -----------
+                    </spam>
+                  </Col>
+                  <Col md={12} className=" text-center mt-3">
+                    <Form noValidate onSubmit={this.onSubmit}>
+                      <Form.Group className="mb-3" controlId="formGroupEmail">
+                        <Form.Control
+                          onChange={this.onChange}
+                          //value={this.state.email}
+                          error={errors.email}
+                          type="email"
+                          placeholder="Usuario"
+                          className={classnames("", {
+                            invalid: errors.email || errors.emailnotfound,
+                          })}
+                          required
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.email}
+                          {errors.emailnotfound}
+                        </Form.Control.Feedback>
+                      </Form.Group>
 
-              <Form noValidate onSubmit={this.onSubmit}>
-                <Form.Group className="mb-3" controlId="formGroupEmail">
-                  <Form.Label>Correo</Form.Label>
-                  <Form.Control
-                    onChange={this.onChange}
-                    //value={this.state.email}
-                    error={errors.email}
-                    type="email"
-                    placeholder="Ingrese su correo"
-                    className={classnames("", {
-                      invalid: errors.email || errors.emailnotfound,
-                    })}
-                    required
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.email}
-                    {errors.emailnotfound}
-                  </Form.Control.Feedback>
-                </Form.Group>
+                      <Form.Group className="mb-3" controlId="formGroupPassword">
+                        <Form.Control type="password" placeholder="Contraseña" />
+                        <Form.Control.Feedback type="invalid">
+                          Por favor, proporcione una contraseña
+                        </Form.Control.Feedback>
+                      </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formGroupPassword">
-                  <Form.Label>Contraseña</Form.Label>
-                  <Form.Control type="password" placeholder="Ingrese su contraseña" />
-                  <Form.Control.Feedback type="invalid">
-                    Por favor, proporcione una contraseña
-                  </Form.Control.Feedback>
-                </Form.Group>
-
-                <Button type="submit" className="mb-3">
-                  Entrar
-                </Button>
-                <p className="text-muted">
-                  Don't have an account? <Link to="/register">Register</Link>
-                </p>
-              </Form>
+                      <Button
+                        type="submit"
+                        className="m-4 btn-fill text-center"
+                        variant="info"
+                        style={{ borderRadius: "20px" }}>
+                        Entrar
+                      </Button>
+                      <p className="text-muted card-category">
+                        Tienes una cuenta? <Link to="/register">Registrate ahora</Link>
+                      </p>
+                    </Form>
+                  </Col>
+                </Card.Body>
+              </Card>
             </Col>
 
             <Col md={6}></Col>
