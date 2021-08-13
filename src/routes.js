@@ -4,6 +4,7 @@ import CategoriaList from "./components/views/categoria-list.component.jsx";
 import CreateRegistro from "./components/views/create-registro.component.jsx";
 import RegistroList from "./components/views/registro-list.component.jsx";
 import Login from "./components/auth/Login.jsx";
+import Register from "./components/auth/Register.jsx";
 
 const Routes = [
   {
@@ -11,6 +12,14 @@ const Routes = [
     name: "Login",
     icon: "nc-icon nc-chart-pie-35",
     component: Login,
+    layout: "",
+    // exact: true,
+  },
+  {
+    path: "/Register/",
+    name: "Register",
+    icon: "nc-icon nc-chart-pie-35",
+    component: Register,
     layout: "",
     // exact: true,
   },

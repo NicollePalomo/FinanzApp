@@ -115,7 +115,7 @@ class Register extends Component {
                         className="m-4 btn-fill text-center"
                         variant="info"
                         style={{ borderRadius: "20px" }}>
-                        Entrar
+                        Registrarse
                       </Button>
                       <p className="text-muted card-category">
                         ya estas registrado? <Link to="/register">Inicia sesión</Link>
