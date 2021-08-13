@@ -71,42 +71,70 @@ class Register extends Component {
                       <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Control
                           onChange={this.onChange}
-                          //value={this.state.email}
-                          error={errors.email}
+                          value={this.state.name}
+                          error={errors.name}
+                          id="name"
                           type="text"
-                          placeholder="Usuario"
                           className={classnames("", {
-                            invalid: errors.email || errors.emailnotfound,
+                            invalid: errors.name,
                           })}
+                          placeholder="Usuario"
                           required
                         />
                         <Form.Control.Feedback type="invalid">
-                          {errors.email}
-                          {errors.emailnotfound}
+                          {errors.name}
                         </Form.Control.Feedback>
                       </Form.Group>
+
                       <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Control
                           onChange={this.onChange}
-                          //value={this.state.email}
+                          value={this.state.email}
                           error={errors.email}
+                          id="email"
                           type="email"
-                          placeholder="Email"
                           className={classnames("", {
-                            invalid: errors.email || errors.emailnotfound,
+                            invalid: errors.email,
                           })}
+                          placeholder="Email"
                           required
                         />
                         <Form.Control.Feedback type="invalid">
                           {errors.email}
-                          {errors.emailnotfound}
                         </Form.Control.Feedback>
                       </Form.Group>
 
                       <Form.Group className="mb-3" controlId="formGroupPassword">
-                        <Form.Control type="password" placeholder="Contraseña" />
+                        <Form.Control
+                          onChange={this.onChange}
+                          value={this.state.password}
+                          error={errors.password}
+                          id="password"
+                          type="password"
+                          className={classnames("", {
+                            invalid: errors.password,
+                          })}
+                          placeholder="Contraseña"
+                        />
                         <Form.Control.Feedback type="invalid">
-                          Por favor, proporcione una contraseña
+                          {errors.password}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="formGroupPassword">
+                        <Form.Control
+                          onChange={this.onChange}
+                          value={this.state.password2}
+                          error={errors.password2}
+                          id="password2"
+                          type="password"
+                          className={classnames("", {
+                            invalid: errors.password2,
+                          })}
+                          placeholder="Confirmar contraseña"
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          {errors.password2}
                         </Form.Control.Feedback>
                       </Form.Group>
 

@@ -73,8 +73,9 @@ class Login extends Component {
                       <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Control
                           onChange={this.onChange}
-                          //value={this.state.email}
+                          value={this.state.email}
                           error={errors.email}
+                          id="email"
                           type="email"
                           placeholder="Usuario"
                           className={classnames("", {
@@ -89,9 +90,20 @@ class Login extends Component {
                       </Form.Group>
 
                       <Form.Group className="mb-3" controlId="formGroupPassword">
-                        <Form.Control type="password" placeholder="Contraseña" />
+                        <Form.Control
+                          onChange={this.onChange}
+                          value={this.state.password}
+                          error={errors.password}
+                          id="password"
+                          type="password"
+                          className={classnames("", {
+                            invalid: errors.password || errors.passwordincorrect,
+                          })}
+                          placeholder="Contraseña"
+                        />
                         <Form.Control.Feedback type="invalid">
-                          Por favor, proporcione una contraseña
+                          {errors.password}
+                          {errors.passwordincorrect}
                         </Form.Control.Feedback>
                       </Form.Group>
 
