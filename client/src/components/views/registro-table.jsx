@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
+//import { withRouter } from "react-router-dom";
 
-export default class RegistroTable extends Component {
+class RegistroTable extends Component {
   constructor(props) {
     super(props);
     this.deleteRegistro = this.deleteRegistro.bind(this);
@@ -14,20 +15,15 @@ export default class RegistroTable extends Component {
 
   deleteRegistro() {
     axios
-      .delete(
-        "http://localhost:4000/registros/" + this.props.reg._id
-      )
+      .delete("http://localhost:4000/registros/" + this.props.reg._id)
       .then((res) => {
         console.log("Registro successfully deleted!");
+        this.props.history.push("/registros");
       })
       .catch((error) => {
         console.log(error);
       });
   }
-//   editRegistro(props){
-//     <Link as="navlink" to={"/registros/edit-registro/" + this.props.reg._id}>
-//         </Link>
-//   }
 
   render() {
     return (
@@ -51,3 +47,4 @@ export default class RegistroTable extends Component {
     );
   }
 }
+export default withRouter(RegistroTable);

@@ -8,6 +8,7 @@ registroCtrl.getRegistros = async (req, res) => {
   res.json(registros);
 };
 
+// crea el registro 
 registroCtrl.createRegistro = async (req, res) => {
 
   const { tipoRegistro, fecha, monto, categoria, notas } = req.body;
@@ -24,11 +25,12 @@ registroCtrl.createRegistro = async (req, res) => {
   res.json("New registro added");
 };
 
+// actualiza el registro
 registroCtrl.getRegistro = async (req, res) => {
   const registro = await registroSchema.findById(req.params.id);
   res.json(registro);
 };
-
+// borra el registro
 registroCtrl.deleteRegistro = async (req, res) => {
   await registroSchema.findByIdAndDelete(req.params.id);
   res.json("Registro Deleted");

@@ -85,9 +85,9 @@ class Register extends Component {
                           placeholder="Usuario"
                           required
                         />
-                        <Form.Control.Feedback type="invalid">
+                        <spam className="text-danger">
                           {errors.name}
-                        </Form.Control.Feedback>
+                        </spam>
                       </Form.Group>
 
                       <Form.Group className="mb-3" >
@@ -103,9 +103,9 @@ class Register extends Component {
                           placeholder="Email"
                           required
                         />
-                        <Form.Control.Feedback type="invalid">
+                        <spam className="text-danger">
                           {errors.email}
-                        </Form.Control.Feedback>
+                        </spam>
                       </Form.Group>
 
                       <Form.Group
@@ -123,9 +123,9 @@ class Register extends Component {
                           })}
                           placeholder="Contraseña"
                         />
-                        <Form.Control.Feedback type="invalid">
+                        <spam className="text-danger">
                           {errors.password}
-                        </Form.Control.Feedback>
+                        </spam>
                       </Form.Group>
 
                       <Form.Group
@@ -143,9 +143,9 @@ class Register extends Component {
                           })}
                           placeholder="Confirmar contraseña"
                         />
-                        <Form.Control.Feedback type="invalid">
+                        <spam className="text-danger">
                           {errors.password2}
-                        </Form.Control.Feedback>
+                        </spam>
                       </Form.Group>
 
                       <Button

@@ -55,9 +55,7 @@ class Login extends Component {
                     <a href="/#" className="mx-1">
                       <div className="logo">
                         <img
-                          src={
-                            require("../../assets/img/finanzapp.png").default
-                          }
+                          src={require("../../assets/img/finanzapp.png").default}
                           alt="..."
                           style={{ width: "80px", padding: "0" }}
                         />
@@ -71,8 +69,8 @@ class Login extends Component {
                     </span>
                   </Col>
                   <Col md={12} className=" text-center mt-3">
-                    <Form noValidate onSubmit={this.onSubmit}>
-                      <Form.Group className="mb-3" >
+                    <Form noValidate onSubmit={this.onSubmit} className="needs-validation">
+                      <Form.Group className="mb-3">
                         <Form.Control
                           onChange={this.onChange}
                           value={this.state.email}
@@ -83,47 +81,40 @@ class Login extends Component {
                           className={classnames("", {
                             invalid: errors.email || errors.emailnotfound,
                           })}
-                          required
                         />
-                        <Form.Control.Feedback type="invalid">
+                        <sapm className="text-danger">
                           {errors.email}
                           {errors.emailnotfound}
-                        </Form.Control.Feedback>
+                        </sapm>
                       </Form.Group>
 
-                      <Form.Group
-                        className="mb-3"
-                        
-                      >
+                      <Form.Group className="mb-3">
                         <Form.Control
                           onChange={this.onChange}
                           value={this.state.password}
                           error={errors.password}
                           id="password"
                           type="password"
-                          className={classnames("", {
-                            invalid:
-                              errors.password || errors.passwordincorrect,
-                          })}
                           placeholder="Contraseña"
+                          className={classnames("", {
+                            invalid: errors.password || errors.passwordincorrect,
+                          })}
                         />
-                        <Form.Control.Feedback type="invalid">
+                        <spam className="text-danger">
                           {errors.password}
                           {errors.passwordincorrect}
-                        </Form.Control.Feedback>
+                        </spam>
                       </Form.Group>
 
                       <Button
                         type="submit"
                         className="m-4 btn-fill text-center"
                         variant="info"
-                        style={{ borderRadius: "20px" }}
-                      >
+                        style={{ borderRadius: "20px" }}>
                         Entrar
                       </Button>
                       <p className="text-muted card-category">
-                        Tienes una cuenta?{" "}
-                        <Link to="/register">Registrate ahora</Link>
+                        Tienes una cuenta? <Link to="/register">Registrate ahora</Link>
                       </p>
                     </Form>
                   </Col>

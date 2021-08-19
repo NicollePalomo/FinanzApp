@@ -46,14 +46,11 @@ export default class EditCategoria extends Component {
     };
     console.log(obj);
     axios
-      .put(
-        "http://localhost:4000/categorias/" + this.props.match.params.id,
-        obj
-      )
-      .then(
-        (res) => console.log(res.data),
-        this.props.history.push("/categorias")
-      );
+      .put("http://localhost:4000/categorias/" + this.props.match.params.id, obj)
+      .then((res) => {
+        console.log(res.data);
+        this.props.history.push("/categorias");
+      });
   }
   render() {
     return (
@@ -61,10 +58,7 @@ export default class EditCategoria extends Component {
         <Container>
           <Row>
             <Col md="12" className="d-flex justify-content-center">
-              <Card
-                style={{ width: "70%" }}
-                className="card-plain table-plain-bg"
-              >
+              <Card style={{ width: "70%" }} className="card-plain table-plain-bg">
                 <Card.Header>
                   <Card.Title as="h4">Editar Categoría</Card.Title>
                 </Card.Header>
@@ -73,11 +67,7 @@ export default class EditCategoria extends Component {
                   <Form onSubmit={this.onSubmit}>
                     {/* categoria a ingresar */}
 
-                    <Form.Group
-                      as={Row}
-                      className="md-12"
-                      controlId="categoria"
-                    >
+                    <Form.Group as={Row} className="md-12" controlId="categoria">
                       <Form.Label column md={3}>
                         Categoría
                       </Form.Label>
@@ -86,18 +76,13 @@ export default class EditCategoria extends Component {
                           type="text"
                           placeholder="Ingrese la categoría"
                           onChange={this.onChangeCategoria.bind(this)}
-                          value={this.state.categoria}
-                        ></Form.Control>
+                          value={this.state.categoria}></Form.Control>
                       </Col>
                     </Form.Group>
 
                     <br></br>
 
-                    <Form.Group
-                      as={Row}
-                      className="md-12"
-                      controlId="tipoRegistro"
-                    >
+                    <Form.Group as={Row} className="md-12" controlId="tipoRegistro">
                       <Form.Label column md={3}>
                         Tipo de registro
                       </Form.Label>
@@ -131,8 +116,7 @@ export default class EditCategoria extends Component {
                     <Button
                       className="btn-fill pull-right text-center"
                       type="submit"
-                      variant="info"
-                    >
+                      variant="info">
                       Editar Categoría
                     </Button>
                     <div className="clearfix"></div>

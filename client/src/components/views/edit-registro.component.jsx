@@ -16,8 +16,7 @@ export default class EditCategoria extends Component {
       tipoRegistro: "Ingreso",
       categoria: "",
       listaCategoria: [],
-     
-      
+
       notas: "",
     };
   }
@@ -46,7 +45,6 @@ export default class EditCategoria extends Component {
       .catch(function (error) {
         console.log(error);
       });
-    
   }
   onChangeTipoRegistro(e) {
     console.log(e.target.value);
@@ -101,14 +99,11 @@ export default class EditCategoria extends Component {
     };
     console.log(obj);
     axios
-      .put(
-        "http://localhost:4000/registros/" +
-          this.props.match.params.id,
-        obj
-      )
-      .then((res) => console.log(res.data));
-
-    this.props.history.push("/registros");
+      .put("http://localhost:4000/registros/" + this.props.match.params.id, obj)
+      .then((res) => {
+        console.log(res.data);
+        this.props.history.push("/registros");
+      });
   }
 
   render() {
@@ -118,10 +113,7 @@ export default class EditCategoria extends Component {
           <Row>
             {/* formulario */}
             <Col md="12" className="d-flex justify-content-center">
-              <Card
-                style={{ width: "55%" }}
-                className="card-plain table-plain-bg"
-              >
+              <Card style={{ width: "55%" }} className="card-plain table-plain-bg">
                 <Card.Header>
                   <Card.Title as="h4">Editar Registro</Card.Title>
                 </Card.Header>
@@ -129,11 +121,7 @@ export default class EditCategoria extends Component {
                 <Card.Body className="table-full-width table-responsive px-0">
                   <Form onSubmit={this.onSubmit}>
                     {/* checkbox */}
-                    <Form.Group
-                      as={Row}
-                      className="md-12"
-                      controlId="tipoRegistro"
-                    >
+                    <Form.Group as={Row} className="md-12" controlId="tipoRegistro">
                       <Form.Label column md={6}>
                         Tipo de registro
                       </Form.Label>
@@ -171,8 +159,7 @@ export default class EditCategoria extends Component {
                         <Form.Control
                           type="date"
                           onChange={this.onChangeFecha.bind(this)}
-                          defaultValue={this.state.fecha}
-                        ></Form.Control>
+                          defaultValue={this.state.fecha}></Form.Control>
                       </Col>
                     </Form.Group>
                     {/* monto */}
@@ -185,16 +172,11 @@ export default class EditCategoria extends Component {
                           type="number"
                           onChange={this.onChangeMonto.bind(this)}
                           placeholder="Ingrese el monto"
-                          defaultValue={this.state.monto}
-                        ></Form.Control>
+                          defaultValue={this.state.monto}></Form.Control>
                       </Col>
                     </Form.Group>
                     {/* categoria */}
-                    <Form.Group
-                      as={Row}
-                      className="md-12"
-                      controlId="categoria"
-                    >
+                    <Form.Group as={Row} className="md-12" controlId="categoria">
                       <Form.Label column md={6}>
                         Categoría:
                       </Form.Label>
@@ -213,31 +195,24 @@ export default class EditCategoria extends Component {
                           as="select"
                           name="categorias"
                           onChange={this.onChangeCategoria.bind(this)}
-                          defaultValue={this.state.categoria}
-                        >
+                          defaultValue={this.state.categoria}>
                           {this.categoriaList()}
                         </Form.Control>
                       </Col>
                     </Form.Group>
                     {/* texto */}
                     <Form.Group as={Row} className="md-12" controlId="notas">
-                      
                       <Col className="pl-1" md="12">
                         <Form.Control
                           as="textarea"
                           rows={3}
                           placeholder="Agregar Desciripción"
                           onChange={this.onChangeNotas.bind(this)}
-                          defaultValue={this.state.notas}
-                        ></Form.Control>
+                          defaultValue={this.state.notas}></Form.Control>
                       </Col>
                     </Form.Group>
 
-                    <Button
-                      className="btn-fill pull-right mt-3"
-                      type="submit"
-                      variant="info"
-                    >
+                    <Button className="btn-fill pull-right mt-3" type="submit" variant="info">
                       Editar Registro
                     </Button>
                     <div className="clearfix"></div>

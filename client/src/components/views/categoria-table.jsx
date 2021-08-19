@@ -12,19 +12,14 @@ export default class CategoriaTable extends Component {
   deleteCategoria(e) {
     e.preventDefault();
     axios
-      .delete(
-        "http://localhost:4000/categorias/" +
-          this.props.categ._id
-      )
+      .delete("http://localhost:4000/categorias/" + this.props.categ._id)
       .then((res) => {
         console.log("Categoria successfully deleted!");
+        this.props.history.push("/categorias");
       })
       .catch((error) => {
         console.log(error);
       });
-
-   
-      
   }
 
   render() {
